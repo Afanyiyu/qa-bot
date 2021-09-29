@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/Afanyiyu/qa-bot#readme",
   "dependencies": {
+    "@koishijs/plugin-common": "^5.0.0-alpha.7",
     "@koishijs/plugin-onebot": "^4.0.0-alpha.6",
     "dotenv": "^10.0.0",
     "koishi": "^4.0.0-alpha.7"
