@@ -9,7 +9,12 @@ import * as pluginAssets from '@koishijs/plugin-assets'
 
 import * as pluginQa from './plugins/qa'
 
-const app = new App()
+const app = new App({
+  nickname: '问答',
+  autoAuthorize: 2,
+  port: process.env.KOISHI_PORT as unknown as number,
+  selfUrl: process.env.KOISHI_SELF_URL,
+})
 
 // Configure onebot
 app.plugin(pluginOnebot, {
