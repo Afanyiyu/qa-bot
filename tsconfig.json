@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "strictBindCallApply": true,
+    "strict": true,
+    "experimentalDecorators": true,
+    "baseUrl": "src",
+    "outDir": "dist"
+  }
+}
