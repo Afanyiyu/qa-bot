@@ -7,6 +7,8 @@ import * as pluginCommon from '@koishijs/plugin-common'
 import * as pluginMysql from '@koishijs/plugin-mysql'
 import * as pluginAssets from '@koishijs/plugin-assets'
 
+import * as pluginQa from './plugins/qa'
+
 const app = new App()
 
 // Configure onebot
@@ -32,5 +34,8 @@ app.plugin(pluginAssets, {
 
 // Configure plugin-common
 app.plugin(pluginCommon)
+
+// Configure qa
+app.plugin(pluginQa)
 
 app.start()
