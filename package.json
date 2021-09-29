@@ -34,7 +34,9 @@
     "@koishijs/plugin-mysql": "^4.0.0-alpha.5",
     "@koishijs/plugin-onebot": "^4.0.0-alpha.6",
     "dotenv": "^10.0.0",
-    "koishi": "^4.0.0-alpha.7"
+    "koishi": "^4.0.0-alpha.7",
+    "proxy-agent": "^5.0.0",
+    "simplify-chinese": "^1.1.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.32.0",
