@@ -1,0 +1,46 @@
+{
+  "name": "qa-bot",
+  "version": "0.0.1",
+  "description": "轻量的问答/客服机器人。",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ts-node src/index.ts",
+    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "lint": "eslint --ext .js,.ts --ignore-path .gitignore . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Afanyiyu/qa-bot.git"
+  },
+  "keywords": [
+    "koishi"
+  ],
+  "author": "Il Harper <afanyiyu@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Afanyiyu/qa-bot/issues"
+  },
+  "homepage": "https://github.com/Afanyiyu/qa-bot#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "koishi": "^4.0.0-alpha.7"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  }
+}
