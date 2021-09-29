@@ -2,13 +2,19 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "noEmit": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "strictBindCallApply": true,
+    "strictNullChecks": false,
     "strict": true,
+    "noImplicitAny": false,
     "experimentalDecorators": true,
-    "baseUrl": "src",
-    "outDir": "dist"
-  }
+    "outDir": "dist",
+    "incremental": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+  },
+  "include": [
+    "src"
+  ]
 }
