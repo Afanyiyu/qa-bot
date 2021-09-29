@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/Afanyiyu/qa-bot#readme",
   "dependencies": {
+    "@koishijs/plugin-assets": "^2.0.0-alpha.0",
     "@koishijs/plugin-common": "^5.0.0-alpha.7",
     "@koishijs/plugin-mysql": "^4.0.0-alpha.5",
     "@koishijs/plugin-onebot": "^4.0.0-alpha.6",
