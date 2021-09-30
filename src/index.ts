@@ -43,4 +43,13 @@ app.plugin(pluginCommon)
 // Configure qa
 app.plugin(pluginQa)
 
+// Remove all shortcuts
+app._shortcuts.splice(0, app._shortcuts.length)
+
+// Remove help command
+app.command('help').dispose()
+
+// Add qa shortcut
+app.command('qa').shortcut('问答')
+
 app.start()
