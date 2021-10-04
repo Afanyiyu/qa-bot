@@ -49,7 +49,10 @@ export default function apply(ctx: Context): void {
     return `共收录了 ${questions} 个问题和 ${dialogues} 个回答。`
   })
 
-  ctx.command('qa').option('search', '搜索已有问答', { notUsage: true })
+  ctx
+    .command('qa')
+    .option('search', '搜索已有问答', { notUsage: true })
+    .option('searchQuestionAnswer', 'INTERNAL', { notUsage: true })
 
   ctx.on('dialogue/execute', (argv) => {
     const { search } = argv.options
@@ -189,6 +192,7 @@ async function showSearch(argv: Dialogue.Argv) {
   const { original } = options
 
   const test: DialogueTest = { question, answer, original, regexp: true }
+  if (options['searchQuestionAnswer']) test.searchQuestionAnswer = true
   const dialogues = await Dialogue.get(app, test)
 
   if (!original && !answer) {

@@ -72,6 +72,7 @@ function registerPrefix(ctx: Context, prefix: string) {
     argv.options = {}
     if (!argv.tokens.length) return 'qa.status'
     argv.options['search'] = true
+    argv.options['searchQuestionAnswer'] = true
 
     return 'qa'
   })

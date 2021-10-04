@@ -64,6 +64,7 @@ export interface DialogueTest {
   regexp?: boolean
   activated?: boolean
   appellative?: boolean
+  searchQuestionAnswer?: boolean
 }
 
 export namespace Dialogue {

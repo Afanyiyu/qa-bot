@@ -134,25 +134,41 @@ by Il-Harper
     }
   })
 
-  ctx.on('dialogue/test', ({ regexp, answer, question, original }, query) => {
-    if (regexp) {
-      if (answer) query.answer = { $regex: new RegExp(answer, 'i') }
-      if (original) query.original = { $regex: new RegExp(original, 'i') }
-      return
+  ctx.on(
+    'dialogue/test',
+    ({ regexp, answer, question, original, searchQuestionAnswer }, query) => {
+      if (regexp) {
+        if (searchQuestionAnswer) {
+          if (original) {
+            query.$or = [
+              {
+                original: { $regex: new RegExp(original, 'i') },
+              },
+              {
+                answer: { $regex: new RegExp(original, 'i') },
+              },
+            ]
+          }
+        } else {
+          if (answer) query.answer = { $regex: new RegExp(answer, 'i') }
+          if (original) query.original = { $regex: new RegExp(original, 'i') }
+        }
+        return
+      }
+      if (answer) query.answer = answer
+      if (regexp === false) {
+        if (question) query.question = question
+      } else if (original) {
+        const $or: Query.Expr<Dialogue>[] = [
+          {
+            flag: { $bitsAllSet: Dialogue.Flag.regexp },
+            original: { $regexFor: original },
+          },
+        ]
+        if (question)
+          $or.push({ flag: { $bitsAllClear: Dialogue.Flag.regexp }, question })
+        query.$and.push({ $or })
+      }
     }
-    if (answer) query.answer = answer
-    if (regexp === false) {
-      if (question) query.question = question
-    } else if (original) {
-      const $or: Query.Expr<Dialogue>[] = [
-        {
-          flag: { $bitsAllSet: Dialogue.Flag.regexp },
-          original: { $regexFor: original },
-        },
-      ]
-      if (question)
-        $or.push({ flag: { $bitsAllClear: Dialogue.Flag.regexp }, question })
-      query.$and.push({ $or })
-    }
-  })
+  )
 }
